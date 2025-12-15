@@ -1,0 +1,24 @@
+name: build-test
+on:
+  push:
+jobs:
+  build_and_test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repo Checkout
+        uses: actions/checkout@v4
+        
+      - name: Docker Install
+        run: |
+            sudo apt-get update
+            sudo apt-get install -y docker.io
+            
+      - name: create Docker Image
+        run: docker build -t Dockerfile /
+        
+      - name: Container Starten
+        run: echo "Hi"
+        
+      - name: Ausgabe
+        run: echo "Jo"

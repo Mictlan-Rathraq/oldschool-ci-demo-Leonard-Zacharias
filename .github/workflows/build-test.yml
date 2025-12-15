@@ -9,13 +9,16 @@ jobs:
       - name: Repo Checkout
         uses: actions/checkout@v4
         
-      - name: Already Exists?
-        run: docker --version
-        
       - name: Docker Install
         run: |
-            sudo apt-get update
-            sudo apt-get install -y docker.io
+            if ! command -v docker >/dev/null 2>&1; then
+              echo "Docker not found. Installing..."
+              sudo apt-get update
+              sudo apt-get install -y docker.io
+            else
+              echo "Docker is already installed."
+            fi
+            docker --version
             
       - name: create Docker Image
         run: docker build -t Dockerfile /

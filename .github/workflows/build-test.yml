@@ -24,7 +24,7 @@ jobs:
         run: docker build -t leo-image .
         
       - name: Container Starten
-        run: echo "Hi"
+        run: docker run leo-image
         
       - name: Ausgabe
         run: echo "Jo"

@@ -21,7 +21,7 @@ jobs:
             docker --version
             
       - name: create Docker Image
-        run: docker build -t Dockerfile /
+        run: docker build -t leo-image /
         
       - name: Container Starten
         run: echo "Hi"

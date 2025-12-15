@@ -30,7 +30,7 @@ jobs:
         run: |
           OUTPUT=$(docker run leo-image)
           echo "Container output: $OUTPUT"
-          if [ "$OUTPUT" != "Hello from container" ]; then
+          if [ "$OUTPUT" != "OldSchool GmbH –  automatischer Build erfolgreich! (Leonard Z.)" ]; then
             echo "Test failed!"
           else
             echo "Nice"

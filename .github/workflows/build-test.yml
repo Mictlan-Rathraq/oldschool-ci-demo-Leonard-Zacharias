@@ -27,4 +27,11 @@ jobs:
         run: docker run leo-image
         
       - name: Ausgabe
-        run: echo "Jo"
+        run: |
+          OUTPUT=$(docker run leo-image)
+          echo "Container output: $OUTPUT"
+          if [ "$OUTPUT" != "Hello from container" ]; then
+            echo "Test failed!"
+          else
+            echo "Nice"
+          fi

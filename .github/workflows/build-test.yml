@@ -9,6 +9,9 @@ jobs:
       - name: Repo Checkout
         uses: actions/checkout@v4
         
+      - name: Already Exists?
+        run: docker --version
+        
       - name: Docker Install
         run: |
             sudo apt-get update
